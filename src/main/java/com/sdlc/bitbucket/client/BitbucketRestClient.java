@@ -1,7 +1,7 @@
-package com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.client;
+package com.sdlc.bitbucket.client;
 
-import com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.domain.request.GetRepositories;
-import com.sdlc.enterpriseagile.domain.model.exception.EnterpriseAgileRunTimeException;
+import com.sdlc.bitbucket.domain.request.GetRepositories;
+import com.sdlc.bitbucket.exception.BitbucketRunTimeException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -35,7 +35,7 @@ public class BitbucketRestClient {
             return response.body();
         } catch (IOException | InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new EnterpriseAgileRunTimeException(e.getMessage());
+            throw new BitbucketRunTimeException(e.getMessage());
         }
     }
 
@@ -46,7 +46,7 @@ public class BitbucketRestClient {
             return response.body();
         } catch (IOException | InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new EnterpriseAgileRunTimeException(e.getMessage());
+            throw new BitbucketRunTimeException(e.getMessage());
         }
     }
 

@@ -1,4 +1,4 @@
-package com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.domain.request;
+package com.sdlc.bitbucket.domain.request;
 
 import lombok.Builder;
 import lombok.Data;

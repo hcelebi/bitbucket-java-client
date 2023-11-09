@@ -1,8 +1,6 @@
-package com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.configuration;
+package com.sdlc.bitbucket.configuration;
 
-import com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.client.BitbucketRestClient;
-import com.sdlc.enterpriseagile.delegate.jirav3.client.JiraV3RestClient;
-import com.sdlc.enterpriseagile.delegate.jirav3.configuration.JiraV3Properties;
+import com.sdlc.bitbucket.client.BitbucketRestClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,10 +1,10 @@
-package com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.service;
+package com.sdlc.bitbucket.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.configuration.BitbucketClientConfiguration;
-import com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.domain.dto.RepositoriesResult;
-import com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.domain.request.GetRepositories;
+import com.sdlc.bitbucket.configuration.BitbucketClientConfiguration;
+import com.sdlc.bitbucket.domain.dto.RepositoriesResult;
+import com.sdlc.bitbucket.domain.request.GetRepositories;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

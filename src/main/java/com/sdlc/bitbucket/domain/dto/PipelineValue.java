@@ -1,8 +1,8 @@
-package com.sdlc.enterpriseagile.delegate.bitbucket.src.main.java.com.sdlc.bitbucket.domain.dto;
+package com.sdlc.bitbucket.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.sdlc.enterpriseagile.delegate.greenhopper.serializer.CustomDateTimeDeserializer;
+import com.sdlc.bitbucket.serializer.CustomDateTimeDeserializer;
 import lombok.Data;
 import org.joda.time.DateTime;
 
