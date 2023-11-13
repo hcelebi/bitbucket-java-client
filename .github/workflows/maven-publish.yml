@@ -32,7 +32,4 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -e -X
-      env:
-        MAVEN_USERNAME: ${{ secrets.MAVEN_REPO_SERVER_USERNAME }}
-        MAVEN_PASSWORD: ${{ secrets.MAVEN_REPO_SERVER_PASSWORD }}
+      run: mvn deploy -e -X -s $GITHUB_WORKSPACE/settings.xml -Drepo.username=${{ secrets.MAVEN_REPO_SERVER_USERNAME }} -Drepo.password=${{ secrets.MAVEN_REPO_SERVER_PASSWORD }}

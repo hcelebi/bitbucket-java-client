@@ -5,8 +5,8 @@
 <servers>
     <server>
         <id>ossrh</id>
-        <username>${{secrets.MAVEN_REPO_SERVER_USERNAME}}</username>
-        <password>${{secrets.MAVEN_REPO_SERVER_PASSWORD}}</password>
+        <username>${repo.username}</username>
+        <password>${repo.password}</password>
     </server>
 </servers>
 </settings>
