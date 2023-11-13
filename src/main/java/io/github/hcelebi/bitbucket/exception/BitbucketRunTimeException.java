@@ -1,4 +1,4 @@
-package com.sdlc.bitbucket.exception;
+package io.github.hcelebi.bitbucket.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

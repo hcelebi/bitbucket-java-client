@@ -1,4 +1,4 @@
-package com.sdlc.bitbucket.domain.dto;
+package io.github.hcelebi.bitbucket.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -9,12 +9,12 @@ import java.util.List;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RepositoriesResult implements Serializable {
+public class PipelinesResult implements Serializable {
     @Serial
-    private static final long serialVersionUID = -3921835698629684358L;
+    private static final long serialVersionUID = -5595702482205281606L;
 
     private int pagelen;
     private int size;
     private int page;
-    private List<RepositoryValue> values;
+    private List<PipelineValue> values;
 }

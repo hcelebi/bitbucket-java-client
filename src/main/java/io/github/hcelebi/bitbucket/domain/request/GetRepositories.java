@@ -1,4 +1,4 @@
-package com.sdlc.bitbucket.domain.request;
+package io.github.hcelebi.bitbucket.domain.request;
 
 import lombok.Builder;
 import lombok.Data;

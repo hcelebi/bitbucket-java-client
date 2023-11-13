@@ -1,4 +1,4 @@
-package com.sdlc.bitbucket.domain.dto;
+package io.github.hcelebi.bitbucket.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

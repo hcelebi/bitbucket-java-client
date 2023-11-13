@@ -1,7 +1,10 @@
-package com.sdlc.bitbucket.client;
+package io.github.hcelebi.bitbucket.client;
 
-import com.sdlc.bitbucket.domain.request.GetRepositories;
-import com.sdlc.bitbucket.exception.BitbucketRunTimeException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.hcelebi.bitbucket.domain.dto.PipelinesResult;
+import io.github.hcelebi.bitbucket.domain.dto.RepositoriesResult;
+import io.github.hcelebi.bitbucket.domain.request.GetRepositories;
+import io.github.hcelebi.bitbucket.exception.BitbucketRunTimeException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -17,33 +20,35 @@ public class BitbucketRestClient {
     private final String workspace;
     private final HttpClient client;
 
-    public BitbucketRestClient(String baseUri, String token, String workspace) {
+    public BitbucketRestClient(String baseUri, String token, String workspace, HttpClient httpClient) {
         this.baseUri = baseUri;
         this.token = token;
         this.workspace = workspace;
-        client = HttpClient.newHttpClient();
+        this.client = httpClient;
     }
 
-    public String getRepositories(GetRepositories getRepositories) {
+    public RepositoriesResult getRepositories(GetRepositories getRepositories) {
         try {
+            ObjectMapper objectMapper = new ObjectMapper();
             String query = "?pagelen=" + getRepositories.getSize() + "&page=" + getRepositories.getPage();
             if (getRepositories.getProjectKey() != null) {
                 query += "&q=project.key%3D%22" + getRepositories.getProjectKey() + "%22";
             }
             URI uri = URI.create(baseUri + "/repositories/" + workspace + query);
             HttpResponse<String> response = getHttpResponse(uri);
-            return response.body();
+            return objectMapper.readValue(response.body(), RepositoriesResult.class);
         } catch (IOException | InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new BitbucketRunTimeException(e.getMessage());
         }
     }
 
-    public String getPipelines(String repository, int size, int page) {
+    public PipelinesResult getPipelines(String repository, int size, int page) {
         try {
+            ObjectMapper objectMapper = new ObjectMapper();
             URI uri = URI.create(baseUri + "/repositories/" + workspace + "/"+ repository +"/pipelines?pagelen=" + size + "&page=" + page);
             HttpResponse<String> response = getHttpResponse(uri);
-            return response.body();
+            return objectMapper.readValue(response.body(), PipelinesResult.class);
         } catch (IOException | InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new BitbucketRunTimeException(e.getMessage());

@@ -1,8 +1,8 @@
-package com.sdlc.bitbucket.domain.dto;
+package io.github.hcelebi.bitbucket.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.sdlc.bitbucket.serializer.CustomDateTimeDeserializer;
+import io.github.hcelebi.bitbucket.serializer.CustomDateTimeDeserializer;
 import lombok.Data;
 import org.joda.time.DateTime;
 

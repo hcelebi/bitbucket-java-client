@@ -1,4 +1,4 @@
-package com.sdlc.bitbucket.serializer;
+package io.github.hcelebi.bitbucket.serializer;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
