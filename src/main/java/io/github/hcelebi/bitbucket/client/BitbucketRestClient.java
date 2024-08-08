@@ -2,7 +2,9 @@ package io.github.hcelebi.bitbucket.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.hcelebi.bitbucket.domain.dto.PipelinesResult;
+import io.github.hcelebi.bitbucket.domain.dto.PullRequestsResult;
 import io.github.hcelebi.bitbucket.domain.dto.RepositoriesResult;
+import io.github.hcelebi.bitbucket.domain.request.GetPullRequests;
 import io.github.hcelebi.bitbucket.domain.request.GetRepositories;
 import io.github.hcelebi.bitbucket.exception.BitbucketRunTimeException;
 
@@ -49,6 +51,18 @@ public class BitbucketRestClient {
             URI uri = URI.create(baseUri + "/repositories/" + workspace + "/"+ repository +"/pipelines?pagelen=" + size + "&page=" + page);
             HttpResponse<String> response = getHttpResponse(uri);
             return objectMapper.readValue(response.body(), PipelinesResult.class);
+        } catch (IOException | InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new BitbucketRunTimeException(e.getMessage());
+        }
+    }
+
+    public PullRequestsResult getPullRequests(GetPullRequests getPullRequests) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            URI uri = URI.create(baseUri + "/repositories/" + workspace + "/"+ getPullRequests.getRepository() +"/pullrequests?pagelen=" + getPullRequests.getPagelen() + "&page=" + getPullRequests.getPage());
+            HttpResponse<String> response = getHttpResponse(uri);
+            return objectMapper.readValue(response.body(), PullRequestsResult.class);
         } catch (IOException | InterruptedException e) {
             Thread.currentThread().interrupt();
             throw new BitbucketRunTimeException(e.getMessage());
