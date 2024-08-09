@@ -7,4 +7,5 @@ public class GetPullRequests {
     private int pagelen;
     private int page;
     private String repository;
+    private String q;
 }

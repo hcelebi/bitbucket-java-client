@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.hcelebi</groupId>
     <artifactId>bitbucket-java-client</artifactId>
-    <version>1</version>
+    <version>1.2.0</version>
     <description>Bitbucket Java Client</description>
     <packaging>jar</packaging>
     <licenses>
@@ -97,6 +97,15 @@
                 <configuration>
                     <source>14</source>
                     <target>14</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>ossrh</publishingServerId>
                 </configuration>
             </plugin>
         </plugins>

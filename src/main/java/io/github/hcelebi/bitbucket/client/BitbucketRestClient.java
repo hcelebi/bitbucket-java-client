@@ -60,7 +60,11 @@ public class BitbucketRestClient {
     public PullRequestsResult getPullRequests(GetPullRequests getPullRequests) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            URI uri = URI.create(baseUri + "/repositories/" + workspace + "/"+ getPullRequests.getRepository() +"/pullrequests?pagelen=" + getPullRequests.getPagelen() + "&page=" + getPullRequests.getPage());
+            String str = baseUri + "/repositories/" + workspace + "/" + getPullRequests.getRepository() + "/pullrequests?pagelen=" + getPullRequests.getPagelen() + "&page=" + getPullRequests.getPage();
+            if (getPullRequests.getQ() != null) {
+                str += "q=" + getPullRequests.getQ();
+            }
+            URI uri = URI.create(str);
             HttpResponse<String> response = getHttpResponse(uri);
             return objectMapper.readValue(response.body(), PullRequestsResult.class);
         } catch (IOException | InterruptedException e) {
