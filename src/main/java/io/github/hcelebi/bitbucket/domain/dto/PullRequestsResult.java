@@ -15,5 +15,7 @@ public class PullRequestsResult implements Serializable {
     private int pagelen;
     private int size;
     private int page;
+    private String next;
+    private String previous;
     private List<PullRequestValue> values;
 }
