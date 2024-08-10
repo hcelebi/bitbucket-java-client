@@ -9,4 +9,5 @@ public class GetPullRequests {
     private String repository;
     private String q;
     private String state;
+    private String user;
 }

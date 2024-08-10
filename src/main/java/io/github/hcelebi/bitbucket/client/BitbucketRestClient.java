@@ -57,10 +57,10 @@ public class BitbucketRestClient {
         }
     }
 
-    public PullRequestsResult getPullRequests(GetPullRequests getPullRequests) {
+    public PullRequestsResult getUserPullRequests(GetPullRequests getPullRequests) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            String str = baseUri + "/repositories/" + workspace + "/" + getPullRequests.getRepository() + "/pullrequests?pagelen=" + getPullRequests.getPagelen() + "&page=" + getPullRequests.getPage();
+            String str = baseUri + "/pullrequests/" + getPullRequests.getUser() + "?pagelen=" + getPullRequests.getPagelen() + "&page=" + getPullRequests.getPage();
             if (getPullRequests.getState() != null) {
                 str += "&state" + getPullRequests.getState();
             }
