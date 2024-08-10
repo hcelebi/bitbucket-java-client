@@ -61,8 +61,11 @@ public class BitbucketRestClient {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             String str = baseUri + "/repositories/" + workspace + "/" + getPullRequests.getRepository() + "/pullrequests?pagelen=" + getPullRequests.getPagelen() + "&page=" + getPullRequests.getPage();
+            if (getPullRequests.getState() != null) {
+                str += "&state" + getPullRequests.getState();
+            }
             if (getPullRequests.getQ() != null) {
-                str += "q=" + getPullRequests.getQ();
+                str += "&q=" + getPullRequests.getQ();
             }
             URI uri = URI.create(str);
             HttpResponse<String> response = getHttpResponse(uri);

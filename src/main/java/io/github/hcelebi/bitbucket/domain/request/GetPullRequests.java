@@ -8,4 +8,5 @@ public class GetPullRequests {
     private int page;
     private String repository;
     private String q;
+    private String state;
 }
